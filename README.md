@@ -18,7 +18,13 @@ cd firebase\functions\
 firebase init functions
 ```
 
-3. Enable emulator
+3. Make deploy
+
+```
+firebase deploy --only functions
+```
+
+4. Enable emulator
 
 ```
 npm install -g @google-cloud/functions-emulator
