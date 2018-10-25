@@ -6,6 +6,8 @@ const functions = require("firebase-functions");
 const { WebhookClient } = require("dialogflow-fulfillment");
 const { Card, Suggestion } = require("dialogflow-fulfillment");
 
+console.log("local runs here");
+
 process.env.DEBUG = "dialogflow:debug"; // enables lib debugging statements
 
 exports.dialogflowFirebaseFulfillment = functions.https.onRequest(
@@ -23,7 +25,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest(
     function realizarBusca(agent) {
       console.log(agent);
       agent.add(
-        `O número de sua carteirinha é 00 559 59059 5405 4 ==== ${JSON.stringify(
+        `O número de sua carteirinha é 00 559 59059 5405 4 firebase local ==== ${JSON.stringify(
           agent.parameters
         )}`
       );
