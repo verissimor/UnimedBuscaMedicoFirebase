@@ -18,6 +18,19 @@ cd firebase\functions\
 firebase init functions
 ```
 
+3. Enable emulator
+
+```
+npm install -g @google-cloud/functions-emulator
+
+set FIREBASE_CONFIG="{\"databaseURL\":\"https://unimedbuscamedico.firebaseio.com\", \"storageBucket\":\"unimedbuscamedico.appspot.com\",\"projectId\":\"unimedbuscamedico\"}"
+
+npm install -g firebase-functions@2.0.5
+npm install -g firebase-admin@~6.0.0
+
+functions deploy --trigger-http --timeout 600s unimedbuscamedico
+```
+
 ### Original Steps
 
 1. Deploy the fulfillment webhook provided in the functions folder using [Google Cloud Functions for Firebase](https://firebase.google.com/docs/functions/):
