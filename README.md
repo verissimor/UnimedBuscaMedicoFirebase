@@ -18,13 +18,7 @@ cd firebase\functions\
 firebase init functions
 ```
 
-3. Make deploy
-
-```
-firebase deploy --only functions
-```
-
-4. Enable emulator
+3. Enable emulator
 
 ```
 npm install -g @google-cloud/functions-emulator
@@ -34,7 +28,15 @@ set FIREBASE_CONFIG="{\"databaseURL\":\"https://unimedbuscamedico.firebaseio.com
 npm install -g firebase-functions@2.0.5
 npm install -g firebase-admin@~6.0.0
 
-functions deploy --trigger-http --timeout 600s unimedbuscamedico
+functions deploy --trigger-http --timeout 600s dialogflowFirebaseFulfillment
+
+functions inspect dialogflowFirebaseFulfillment
+```
+
+4. Make deploy
+
+```
+firebase deploy --only functions
 ```
 
 ### Original Steps

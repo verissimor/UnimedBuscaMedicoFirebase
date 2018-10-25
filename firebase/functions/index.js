@@ -5,10 +5,42 @@
 const functions = require("firebase-functions");
 const { WebhookClient } = require("dialogflow-fulfillment");
 const { Card, Suggestion } = require("dialogflow-fulfillment");
+const { List } = require("actions-on-google");
 
 console.log("local runs here");
 
 process.env.DEBUG = "dialogflow:debug"; // enables lib debugging statements
+
+const teste = function googleAssistantOther(agent) {
+  let conv = agent.conv(); // Get Actions on Google library conversation object
+  conv.ask("Please choose an item:"); // Use Actions on Google library to add responses
+  conv.ask(
+    new Carousel({
+      title: "Google Assistant",
+      items: {
+        WorksWithGoogleAssistantItemKey: {
+          title: "Works With the Google Assistant",
+          description:
+            "If you see this logo, you know it will work with the Google Assistant.",
+          image: {
+            url: imageUrl,
+            accessibilityText: "Works With the Google Assistant logo"
+          }
+        },
+        GoogleHomeItemKey: {
+          title: "Google Home",
+          description: "Google Home is a powerful speaker and voice Assistant.",
+          image: {
+            url: imageUrl2,
+            accessibilityText: "Google Home"
+          }
+        }
+      }
+    })
+  );
+  // Add Actions on Google library responses to your agent's response
+  agent.add(conv);
+};
 
 exports.dialogflowFirebaseFulfillment = functions.https.onRequest(
   (request, response) => {
@@ -32,9 +64,38 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest(
     }
 
     function buscarMedicoPorEspecialidade(agent) {
-      //agent.add(`Ok, a seguir alguns médicos:`);
+      const regiaoConst = agent.parameters.Regiao;
+      const especialidadeConst = agent.parameters.Especialidades;
+      const areasDeAtuacaoConst = agent.parameters.AreasDeAtuacao;
+      const arrMedicos = [
+        {
+          nome: "M1",
+          especialidades: ["Gastro", "Clínico geral"],
+          regiao: ["Canasvieiras", "Norte da ilha"],
+          endereco: "rua 1",
+          telefone: "48 3331 4488"
+        },
+        {
+          nome: "M2",
+          especialidades: ["Pediatra", "Clínico geral"],
+          regiao: ["Centro"],
+          endereco: "rua 2",
+          telefone: "48 9991 4487"
+        }
+      ];
+
+      const resultado = arrMedicos.filter(el => {
+        let retorno = true;
+        regiaoConst && (retorno = retorno && el.regiao.includes(regiaoConst));
+        especialidadeConst &&
+          (retorno = retorno && el.especialidades.includes(especialidadeConst));
+        return retorno;
+      });
+
+      agent.add(JSON.stringify(resultado));
+
       // https://dialogflow.com/docs/getting-started/integrate-services
-      agent.add(
+      /* agent.add(
         new Card(
           {
             title: `Dr João Verissimo Ribeiro`,
@@ -62,14 +123,14 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest(
           }
         )
       );
-
-      //agent.add(`Heitor Teixeira 048996548002`);
+*/
+      /*agent.add(`Heitor Teixeira 048996548002`);
       //agent.add(`João Verissimo 048996548002`);
-      agent.add(`Asafe dos Santos 048996548002`);
-
+      // agent.add(`Asafe dos Santos 048996548002`);
       // agent.add(new Suggestion(`Quick Reply`));
       // agent.add(new Suggestion(`Suggestion`));
       // agent.add(`top né??`);
+      */
     }
 
     function fallback(agent) {
