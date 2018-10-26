@@ -1,32 +1,7 @@
-// See https://github.com/dialogflow/dialogflow-fulfillment-nodejs
-// for Dialogflow fulfillment library docs, samples, and to report issues
 "use strict";
 
-const arrMedicos = [
-  {
-    nome: "Dr. João Da Silva",
-    especialidades: ["Gastro", "Clínico geral"],
-    regiao: ["Canasvieiras", "Norte da ilha"],
-    endereco: "rua 1",
-    telefone: "48 3331 4488"
-  },
-  {
-    nome: "Dr. Asafe do Nascimento",
-    especialidades: ["Pediatra", "Clínico geral"],
-    regiao: ["Centro"],
-    endereco: "rua 2",
-    telefone: "48 9991 4487"
-  },
-  {
-    nome: "Dra. Berenice Damasceno",
-    especialidades: ["Pediatra", "Clínico geral"],
-    regiao: ["Centro"],
-    endereco: "rua 2",
-    telefone: "48 9991 4487"
-  }
-];
-
-process.env.DEBUG = "dialogflow:debug"; // enables lib debugging statements
+// enables lib debugging statements
+process.env.DEBUG = "dialogflow:debug";
 
 const functions = require("firebase-functions");
 const { WebhookClient } = require("dialogflow-fulfillment");
@@ -36,6 +11,29 @@ const { List } = require("actions-on-google");
 exports.dialogflowFirebaseFulfillment = functions.https.onRequest(
   (request, response) => {
     const agent = new WebhookClient({ request, response });
+    const arrMedicos = [
+      {
+        nome: "Dr. João Da Silva",
+        especialidades: ["Gastro", "Clínico geral"],
+        regiao: ["Canasvieiras", "Norte da ilha"],
+        endereco: "rua 1",
+        telefone: "48 3331 4488"
+      },
+      {
+        nome: "Dr. Asafe do Nascimento",
+        especialidades: ["Pediatria", "Clínico geral"],
+        regiao: ["Centro"],
+        endereco: "rua 2",
+        telefone: "48 9991 4487"
+      },
+      {
+        nome: "Dra. Berenice Damasceno",
+        especialidades: ["Pediatria", "Clínico geral"],
+        regiao: ["Centro"],
+        endereco: "rua 2",
+        telefone: "48 9991 4487"
+      }
+    ];
 
     function realizarBusca(agent) {
       const nmUsuarioConst = agent.parameters.NomeUsuario;
@@ -60,13 +58,17 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest(
           (retorno = retorno && el.especialidades.includes(especialidadeConst));
         return retorno;
       });
-      agent.add("oi erro");
+      mensagemMedicos(agent, resultado);
     }
 
-    function retornaNomeBonito(agent, medicos) {
-      medicos.forEach(medico => {
-        // agent.add(medico.nome + medico.endereco + medico.telefone);
-      });
+    function mensagemMedicos(agent, medicos) {
+      !medicos.length
+        ? agent.add("Nenhum médico encontrado.")
+        : medicos.foreach(medico => {
+            agent.add(medico.nome.toUpperCase());
+            agent.add(medico.telefone);
+            agent.add(medico.endereco);
+          });
     }
 
     let intentMap = new Map();
