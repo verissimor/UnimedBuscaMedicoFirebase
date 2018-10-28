@@ -22,7 +22,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
       nuCarterinha += "000000000000";
       if (nuCarterinha.length > 12)
         nuCarterinha = nuCarterinha.substr(0, 12);
-      agent.add(`O número de sua carteirinha é 0 025 ${nuCarterinha} 3 `);
+      agent.add(`O número da carteirinha é: 0 025 ${nuCarterinha} 3 `);
     }
 
     function buscarMedicoPorEspecialidade(agent) {
