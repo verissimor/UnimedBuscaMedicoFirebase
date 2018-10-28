@@ -38,7 +38,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
       });
       return !medicos.length
         ? agent.add("Realizei um busca nos médicos , mas não consegui encontrar um  médico com essas características.")
-        : medicos.forEach(medico => agent.add(medico.nome.toUpperCase()));
+        : medicos.slice(0, 2).forEach(medico => agent.add(medico.nome.toUpperCase() + ' ' + medico.telefone + '; '));
     }
 
     let intentMap = new Map();
