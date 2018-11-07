@@ -21,7 +21,7 @@ const app = dialogflow({debug: true});
 
 app.intent('BuscarNumeroCarteirinha', (conv, {NomeUsuario}) => {
   const nuCarterinha = gerarNumeroCarterinha(NomeUsuario);
-  const mensagem = `O número de sua carteirinha é 0 025 ${nuCarterinha} 3`;
+  const mensagem = `O número de sua carteirinha é: 0 025 ${nuCarterinha} 3`;
   if (!conv.surface.capabilities.has('actions.capability.SCREEN_OUTPUT')) {
     conv.close(mensagem);
   }else{
@@ -54,12 +54,12 @@ app.intent('BuscarMedicoPorEspecialidade', (conv, {Regiao,Especialidades}) => {
   }
 });
 
+
 app.intent('actions.intent.OPTION', (conv, params, option) => {
   console.log(option);
 });
 
 exports.dialogflowFirebaseFulfillment = functions.https.onRequest(app);
-
 
 /**
 * Funcao para gerar o numero da carterinha pelo nome do usuario
