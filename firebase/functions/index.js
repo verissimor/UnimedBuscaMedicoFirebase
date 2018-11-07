@@ -1,59 +1,101 @@
 "use strict";
 
-/**
-* Enables lib debugging statements
-*/
-process.env.DEBUG = "dialogflow:debug";
+const {
+  dialogflow,
+  BasicCard,
+  BrowseCarousel,
+  BrowseCarouselItem,
+  Button,
+  Carousel,
+  Image,
+  LinkOutSuggestion,
+  List,
+  MediaObject,
+  Suggestions,
+  SimpleResponse,
+  Table
+ } = require('actions-on-google');
 
-const functions = require("firebase-functions");
-const { WebhookClient } = require("dialogflow-fulfillment");
-const { Card, Suggestion } = require("dialogflow-fulfillment");
-const { List } = require("actions-on-google");
+const functions = require('firebase-functions');
+const app = dialogflow({debug: true});
 
-exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, response) => {
-
-    const agent = new WebhookClient({ request, response });
-
-    function buscarNumeroCarteirinha(agent) {
-      const nmUsuarioConst = agent.parameters.NomeUsuario;
-      let nuCarterinha = "";
-      for (let i = 0; i < nmUsuarioConst.length; i++)
-        nuCarterinha += nmUsuarioConst.charCodeAt(i);
-      nuCarterinha += "000000000000";
-      if (nuCarterinha.length > 12)
-        nuCarterinha = nuCarterinha.substr(0, 12);
-      agent.add(`O número de sua carteirinha é 0 025 ${nuCarterinha} 3 `);
-    }
-
-    function buscarMedicoPorEspecialidade(agent) {
-      const regiaoTxt = removerAcentos(agent.parameters.Regiao).toUpperCase();
-      const especialidadesTxt = removerAcentos(agent.parameters.Especialidades).toUpperCase();
-      const medicos = dbMedicos.filter(el => {
-        let filter = true;
-        if(regiaoTxt)
-          filter = filter && el.regiao.filter(r => removerAcentos(r.bairro).toUpperCase().includes(regiaoTxt)).length
-        if(especialidadesTxt)
-          filter = filter && el.especialidades.filter(e => removerAcentos(e).toUpperCase().includes(especialidadesTxt)).length
-        return filter;
-      });
-      return !medicos.length
-        ? agent.add("Realizei um busca nos médicos , mas não consegui encontrar um  médico com essas características.")
-        : medicos.forEach(medico => agent.add(medico.nome.toUpperCase()));
-    }
-
-    let intentMap = new Map();
-    intentMap.set("BuscarNumeroCarteirinha", buscarNumeroCarteirinha);
-    intentMap.set("BuscarMedicoPorEspecialidade", buscarMedicoPorEspecialidade);
-    agent.handleRequest(intentMap);
-
+app.intent('BuscarNumeroCarteirinha', (conv, {NomeUsuario}) => {
+  const nuCarterinha = gerarNumeroCarterinha(NomeUsuario);
+  const mensagem = `O número de sua carteirinha é 0 025 ${nuCarterinha} 3`;
+  if (!conv.surface.capabilities.has('actions.capability.SCREEN_OUTPUT')) {
+    conv.close(mensagem);
+  }else{
+    conv.close(new SimpleResponse({speech:mensagem, text: mensagem}));
   }
-);
+});
+
+app.intent('BuscarMedicoPorEspecialidade', (conv, {Regiao,Especialidades}) => {
+  const medicos = buscarMedicos(Regiao,Especialidades);
+  if(!medicos.length){
+    conv.close("Realizei uma busca nos médicos , mas não consegui encontrar um  médico com essas características.");
+    return;
+  }
+  if (!conv.surface.capabilities.has('actions.capability.SCREEN_OUTPUT')) {
+    medicos.forEach(medico => conv.ask(`${medico.nome} \n: ${medico.telefone}`));
+  }else{
+    const items = {}
+    medicos.forEach((medico,indice) => {
+      items[indice.toString()] = {
+        title: medico.nome,
+        description: `Telefone: ${medico.telefone}`,
+        image: new Image({
+          url: 'https://www.carwreckdoctor.com/hubfs/Car_Accident_Doctor.png?t=1537383967751',
+          alt: 'imagem do médico'
+        })
+      }
+    });
+    conv.ask(`${medicos.length} médicos foram encontrados!`);
+    conv.close(new List({title: 'Médicos',items}));
+  }
+});
+
+app.intent('actions.intent.OPTION', (conv, params, option) => {
+  console.log(option);
+});
+
+exports.dialogflowFirebaseFulfillment = functions.https.onRequest(app);
+
+
+/**
+* Funcao para gerar o numero da carterinha pelo nome do usuario
+*/
+
+function gerarNumeroCarterinha(nmUsuario){
+  let nuCarterinha = "";
+  for (let i = 0; i < nmUsuario.length; i++)
+    nuCarterinha += nmUsuario.charCodeAt(i);
+  nuCarterinha += "000000000000";
+    if (nuCarterinha.length > 12)
+      nuCarterinha = nuCarterinha.substr(0, 12);
+  return nuCarterinha;
+}
+
+/**
+* Funcao para buscar os medicos pelo regiao e especialidades
+*/
+
+function buscarMedicos(regiao,especialidades){
+  const regiaoTxt = removerAcentos(regiao).toUpperCase();
+  const especialidadesTxt = removerAcentos(especialidades).toUpperCase();
+  return dbMedicos.filter(el => {
+    let filter = true;
+    if(regiaoTxt)
+      filter = filter && el.regiao.filter(r => removerAcentos(r.bairro).toUpperCase().includes(regiaoTxt)).length
+    if(especialidadesTxt)
+      filter = filter && el.especialidades.filter(e => removerAcentos(e).toUpperCase().includes(especialidadesTxt)).length
+    return filter;
+  });
+}
 
 /**
  * Remove acentos de caracteres
- * @param  {String} stringComAcento [string que contem os acentos]
- * @return {String}                 [string sem acentos]
  */
+
 function removerAcentos( newStringComAcento ) {
   var string = newStringComAcento;
   var mapaAcentosHex = {
@@ -100,7 +142,7 @@ var dbMedicos = [
    },
    {
       "nome":"ACKLEI VIANA",
-      "telefone":"(48) 3225-2064 Telefone",
+      "telefone":"(48) 3225-2064",
       "especialidades":[
          "Cirurgia de Cabeça e Pescoço",
          "Cirurgia de Cabeça e Pescoço"
@@ -183,7 +225,7 @@ var dbMedicos = [
    },
    {
       "nome":"ADRIANA DE TOLEDO GIEBUROWSKI",
-      "telefone":"(48) 3304-7306 Telefone",
+      "telefone":"(48) 3304-7306",
       "especialidades":[
          "Ginecologia e Obstetrícia",
          "Ginecologia e Obstetrícia"
@@ -201,7 +243,7 @@ var dbMedicos = [
    },
    {
       "nome":"ADRIANA DUTRA SCHMIDT",
-      "telefone":"(48) 3235-3113 Telefone",
+      "telefone":"(48) 3235-3113",
       "especialidades":[
          "Médico",
          "Médico"
@@ -219,7 +261,7 @@ var dbMedicos = [
    },
    {
       "nome":"ADRIANA FERRAZ MARTINS",
-      "telefone":"(48) 3037-3900 Telefone",
+      "telefone":"(48) 3037-3900",
       "especialidades":[
          "Cardiologia",
          "Cardiologia"
@@ -237,7 +279,7 @@ var dbMedicos = [
    },
    {
       "nome":"ADRIANA ISABEL COELHO",
-      "telefone":"(48) 3222-4645 Telefone",
+      "telefone":"(48) 3222-4645",
       "especialidades":[
          "Oftalmologia",
          "Oftalmologia"
@@ -320,7 +362,7 @@ var dbMedicos = [
    },
    {
       "nome":"ADUCIO LEONEL THIESEN",
-      "telefone":"(48) 3223-5919 Telefone",
+      "telefone":"(48) 3223-5919",
       "especialidades":[
          "Médico",
          "Médico"
@@ -338,7 +380,7 @@ var dbMedicos = [
    },
    {
       "nome":"ADUCIO LEONEL THIESEN JUNIOR",
-      "telefone":"(48) 3223-5919 | (48) 98822-4816 Telefone",
+      "telefone":"(48) 3223-5919 | (48) 98822-4816",
       "especialidades":[
          "Médico",
          "Médico"
@@ -356,7 +398,7 @@ var dbMedicos = [
    },
    {
       "nome":"AFFONSO NILTON WALMOR SELL RIBEIRO NETO",
-      "telefone":"(48) 3228-8690 Telefone",
+      "telefone":"(48) 3228-8690",
       "especialidades":[
          "Anestesiologia",
          "Anestesiologia"
@@ -387,7 +429,7 @@ var dbMedicos = [
    },
    {
       "nome":"AIUKA JOSE DE ALMEIDA",
-      "telefone":"(48) 3222-5900 | (48) 3222-5346 Telefone",
+      "telefone":"(48) 3222-5900 | (48) 3222-5346",
       "especialidades":[
          "Oncologia Clínica",
          "Oncologia Clínica"
@@ -444,7 +486,7 @@ var dbMedicos = [
    },
    {
       "nome":"ALBERTO DE PONTES JARDIM JUNIOR",
-      "telefone":"(48) 3222-0087 Telefone",
+      "telefone":"(48) 3222-0087",
       "especialidades":[
          "Anestesiologia",
          "Anestesiologia",
@@ -480,7 +522,7 @@ var dbMedicos = [
    },
    {
       "nome":"ALDO ELIAS KIYOSHI TAKANO DE SAIDNEUY",
-      "telefone":"(48) 3235-3113 Telefone",
+      "telefone":"(48) 3235-3113",
       "especialidades":[
          "Cirurgia Geral",
          "Cirurgia do Aparelho Digestivo",
@@ -500,7 +542,7 @@ var dbMedicos = [
    },
    {
       "nome":"ALEX MIRANDA RAMOS",
-      "telefone":"(48) 3222-8898 Telefone",
+      "telefone":"(48) 3222-8898",
       "especialidades":[
          "Geriatria",
          "Clínica Médica",
@@ -532,7 +574,7 @@ var dbMedicos = [
    },
    {
       "nome":"ALEXANDER ROMENO JANNER DAL FORNO",
-      "telefone":"(48) 3028-2300 Telefone",
+      "telefone":"(48) 3028-2300",
       "especialidades":[
          "Cardiologia",
          "Cardiologia"
@@ -576,7 +618,7 @@ var dbMedicos = [
    },
    {
       "nome":"ALEXANDRE CARLOS BUFFON",
-      "telefone":"(48) 3251-9000 Telefone",
+      "telefone":"(48) 3251-9000",
       "especialidades":[
          "Anestesiologia",
          "Anestesiologia",
@@ -653,7 +695,7 @@ var dbMedicos = [
    },
    {
       "nome":"ALEXANDRE POSSER",
-      "telefone":"(48) 3244-9425 Telefone",
+      "telefone":"(48) 3244-9425",
       "especialidades":[
          "Ortopedia e Traumatologia",
          "Ortopedia e Traumatologia"
@@ -671,7 +713,7 @@ var dbMedicos = [
    },
    {
       "nome":"ALEXANDRE SALLES IWERSEN",
-      "telefone":"(48) 3029-0099 Telefone",
+      "telefone":"(48) 3029-0099",
       "especialidades":[
          "Radiologia e Diagnóstico por Imagem",
          "Radiologia e Diagnóstico por Imagem"
@@ -689,7 +731,7 @@ var dbMedicos = [
    },
    {
       "nome":"ALEXANDRE STUDZINSKI DE SOUZA",
-      "telefone":"(48) 3229-7777 Telefone",
+      "telefone":"(48) 3229-7777",
       "especialidades":[
          "Radiologia e Diagnóstico por Imagem",
          "Radiologia e Diagnóstico por Imagem"
@@ -747,7 +789,7 @@ var dbMedicos = [
    },
    {
       "nome":"ALFREDO SPAUTZ GRANEMANN",
-      "telefone":"(48) 3224-3099 Telefone",
+      "telefone":"(48) 3224-3099",
       "especialidades":[
          "Cirurgia Plástica",
          "Cirurgia Plástica"
@@ -765,7 +807,7 @@ var dbMedicos = [
    },
    {
       "nome":"ALICE FELDENS PEDOTTE",
-      "telefone":"(48) 3228-7000 Telefone",
+      "telefone":"(48) 3228-7000",
       "especialidades":[
          "Anestesiologia",
          "Anestesiologia"
@@ -783,7 +825,7 @@ var dbMedicos = [
    },
    {
       "nome":"ALINE DA ROCHA LINO",
-      "telefone":"(48) 3223-6072 Telefone",
+      "telefone":"(48) 3223-6072",
       "especialidades":[
          "Oncologia Clínica",
          "Oncologia Clínica"
@@ -827,7 +869,7 @@ var dbMedicos = [
    },
    {
       "nome":"ALINE KOTH MENEGON AREND",
-      "telefone":"(48) 3029-0099 Telefone",
+      "telefone":"(48) 3029-0099",
       "especialidades":[
          "Radiologia e Diagnóstico por Imagem",
          "Radiologia e Diagnóstico por Imagem"
@@ -845,7 +887,7 @@ var dbMedicos = [
    },
    {
       "nome":"ALINE SUDOSKI",
-      "telefone":"(48) 3224-9394 Telefone",
+      "telefone":"(48) 3224-9394",
       "especialidades":[
          "Oftalmologia",
          "Oftalmologia"
@@ -1019,7 +1061,7 @@ var dbMedicos = [
    },
    {
       "nome":"ANA CAROLINA KOERICH RAMPINELLI",
-      "telefone":"(48) 3228-1818 Telefone",
+      "telefone":"(48) 3228-1818",
       "especialidades":[
          "Oftalmologia",
          "Oftalmologia",
@@ -1095,7 +1137,7 @@ var dbMedicos = [
    },
    {
       "nome":"ANA FLAVIA BORGES DE CARVALHO LIMA",
-      "telefone":"(48) 3028-9100 Telefone",
+      "telefone":"(48) 3028-9100",
       "especialidades":[
          "Acupuntura",
          "Acupuntura"
@@ -1113,7 +1155,7 @@ var dbMedicos = [
    },
    {
       "nome":"ANA MARCIA WERNECK DE CASTRO",
-      "telefone":"(48) 3229-7777 Telefone",
+      "telefone":"(48) 3229-7777",
       "especialidades":[
          "Radiologia e Diagnóstico por Imagem",
          "Radiologia e Diagnóstico por Imagem"
@@ -1170,7 +1212,7 @@ var dbMedicos = [
    },
    {
       "nome":"ANA PAULA BELTRAME FARINA PASINATO",
-      "telefone":"(48) 3222-3032 Telefone",
+      "telefone":"(48) 3222-3032",
       "especialidades":[
          "Patologia",
          "Patologia"
@@ -1228,7 +1270,7 @@ var dbMedicos = [
    },
    {
       "nome":"ANDRE LUZ PEREIRA ROMANO",
-      "telefone":"(48) 3229-6500 Telefone",
+      "telefone":"(48) 3229-6500",
       "especialidades":[
          "Anestesiologia",
          "Anestesiologia",
@@ -1287,7 +1329,7 @@ var dbMedicos = [
    },
    {
       "nome":"ANDRE ROBERTO BUSSMANN",
-      "telefone":"(48) 4004-1300 Telefone",
+      "telefone":"(48) 4004-1300",
       "especialidades":[
          "Anestesiologia",
          "Anestesiologia"
@@ -1328,7 +1370,7 @@ var dbMedicos = [
    },
    {
       "nome":"ANDREA ANNELIESE REICHMUTH DAY",
-      "telefone":"(48) 3324-1100 Telefone",
+      "telefone":"(48) 3324-1100",
       "especialidades":[
          "Cirurgia Torácica",
          "Cirurgia Torácica",
@@ -1351,7 +1393,7 @@ var dbMedicos = [
    },
    {
       "nome":"ANDREA ANTUNES CALDEIRA DE ANDRADA FERREIRA",
-      "telefone":"(48) 3224-0180 Telefone",
+      "telefone":"(48) 3224-0180",
       "especialidades":[
          "Ginecologia e Obstetrícia",
          "Ginecologia e Obstetrícia"
@@ -1395,7 +1437,7 @@ var dbMedicos = [
    },
    {
       "nome":"ANDREA GISELE PEREIRA SIMONI",
-      "telefone":"(48) 3251-9000 Telefone",
+      "telefone":"(48) 3251-9000",
       "especialidades":[
          "Pediatria",
          "Pediatria"
@@ -1413,7 +1455,7 @@ var dbMedicos = [
    },
    {
       "nome":"ANDREA RODRIGUES DE SOUSA",
-      "telefone":"(48) 3229-2829 Telefone",
+      "telefone":"(48) 3229-2829",
       "especialidades":[
          "Otorrinolaringologia",
          "Otorrinolaringologia"
@@ -1431,7 +1473,7 @@ var dbMedicos = [
    },
    {
       "nome":"ANDRESSA FERREIRA CATHCART DE ARAUJO",
-      "telefone":"(48) 4009-0077 Telefone",
+      "telefone":"(48) 4009-0077",
       "especialidades":[
          "Cardiologia",
          "Cardiologia"
@@ -1527,7 +1569,7 @@ var dbMedicos = [
    },
    {
       "nome":"ARI ROCHA",
-      "telefone":"(48) 3229-6500 Telefone",
+      "telefone":"(48) 3229-6500",
       "especialidades":[
          "Urologia",
          "Urologia"
@@ -1558,7 +1600,7 @@ var dbMedicos = [
    },
    {
       "nome":"ARIANE MARTINS DE MENEZES",
-      "telefone":"(48) 3223-3031 Telefone",
+      "telefone":"(48) 3223-3031",
       "especialidades":[
          "Ginecologia e Obstetrícia",
          "Ginecologia e Obstetrícia"
@@ -1628,7 +1670,7 @@ var dbMedicos = [
    },
    {
       "nome":"ARNO DAVI ANDERMANN",
-      "telefone":"(48) 3248-2022 Telefone",
+      "telefone":"(48) 3248-2022",
       "especialidades":[
          "Psiquiatria",
          "Psiquiatria"
@@ -1646,7 +1688,7 @@ var dbMedicos = [
    },
    {
       "nome":"ARNO LOTAR CORDOVA JUNIOR",
-      "telefone":"(48) 3222-7966 Telefone",
+      "telefone":"(48) 3222-7966",
       "especialidades":[
          "Radioterapia",
          "Radioterapia"
