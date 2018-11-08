@@ -128,7 +128,7 @@ function removerAcentos( newStringComAcento ) {
 
 var dbMedicos = [
    {
-      "nome":"ABEL RAIMUNDO VIGA DO ROSARIO",
+      "nome":"Abel Raimundo Viga",
       "telefone":"(48) 3024-7863",
       "especialidades":[
          "Ortopedia e Traumatologia"
@@ -141,7 +141,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ACKLEI VIANA",
+      "nome":"Acklei Viana",
       "telefone":"(48) 3225-2064",
       "especialidades":[
          "Cirurgia de Cabeça e Pescoço",
@@ -159,7 +159,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ADEMAR JOSE DE OLIVEIRA PAES JUNIOR",
+      "nome":"Ademar Jose De Oliveira Junior",
       "telefone":"(48) 3229-7777",
       "especialidades":[
          "Radiologia e Diagnóstico por Imagem"
@@ -172,7 +172,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ADEMAR VALSECHI",
+      "nome":"Adilson Valsechi",
       "telefone":"(48) 3222-8907",
       "especialidades":[
          "Oftalmologia"
@@ -185,7 +185,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ADILSON JOSE DAL MAGO",
+      "nome":"Aderbal Jose Dal Mago",
       "telefone":"(48) 3228-8690",
       "especialidades":[
          "Anestesiologia"
@@ -198,7 +198,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ADRIANA CARNEIRO WAISBLUT",
+      "nome":"Adriana Carneiro",
       "telefone":"(48) 4004-1300",
       "especialidades":[
          "Radiologia e Diagnóstico por Imagem"
@@ -211,7 +211,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ADRIANA DE SIQUEIRA CARVALHO KNABBEN",
+      "nome":"Adriane De Siqueira",
       "telefone":"(48) 3029-6900",
       "especialidades":[
          "Pneumologia"
@@ -224,7 +224,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ADRIANA DE TOLEDO GIEBUROWSKI",
+      "nome":"Adria De Toledo",
       "telefone":"(48) 3304-7306",
       "especialidades":[
          "Ginecologia e Obstetrícia",
@@ -242,7 +242,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ADRIANA DUTRA SCHMIDT",
+      "nome":"Ana Dutra Schimit",
       "telefone":"(48) 3235-3113",
       "especialidades":[
          "Médico",
@@ -260,7 +260,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ADRIANA FERRAZ MARTINS",
+      "nome":"Ana Clara Martins",
       "telefone":"(48) 3037-3900",
       "especialidades":[
          "Cardiologia",
@@ -278,7 +278,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ADRIANA ISABEL COELHO",
+      "nome":"Ana Claudia Coelho",
       "telefone":"(48) 3222-4645",
       "especialidades":[
          "Oftalmologia",
@@ -296,7 +296,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ADRIANA MAGALHAES DE OLIVEIRA FREITAS",
+      "nome":"Ana Silvia Magalhães",
       "telefone":"(48) 3733-8103",
       "especialidades":[
          "Mastologia"
@@ -309,7 +309,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ADRIANA MELLO BAROTTO",
+      "nome":"Bruna Elias",
       "telefone":"(48) 3233-6169",
       "especialidades":[
          "Endocrinologia e Metabologia"
@@ -322,7 +322,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ADRIANA SANTOS SOARES",
+      "nome":"Bianca Santos Soares",
       "telefone":"(48) 3216-7000",
       "especialidades":[
          "Oftalmologia"
@@ -335,7 +335,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ADRIANO CARNIEL VILELA",
+      "nome":"Bernardete Carniel Viela",
       "telefone":"(48) 3223-6641",
       "especialidades":[
          "Cirurgia Vascular"
@@ -348,7 +348,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ADRIANO SCHAEFER MEYER",
+      "nome":"Bernardo Schaefer Meyer",
       "telefone":"(48) 3207-2741 | (48) 3207-2742",
       "especialidades":[
          "Alergia e Imunologia"
@@ -361,7 +361,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ADUCIO LEONEL THIESEN",
+      "nome":"Brutus Leonel Thiesen",
       "telefone":"(48) 3223-5919",
       "especialidades":[
          "Médico",
@@ -379,7 +379,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ADUCIO LEONEL THIESEN JUNIOR",
+      "nome":"Bruno Leonel Thiesen",
       "telefone":"(48) 3223-5919 | (48) 98822-4816",
       "especialidades":[
          "Médico",
@@ -397,7 +397,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"AFFONSO NILTON WALMOR SELL RIBEIRO NETO",
+      "nome":"Brisola Nilton Weiss Neto",
       "telefone":"(48) 3228-8690",
       "especialidades":[
          "Anestesiologia",
@@ -415,7 +415,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"AFONSO MARCIO BATISTA DA SILVA",
+      "nome":"Bernar Batista Da Silva",
       "telefone":"(48) 3234-1654 | (48) 3234-1326",
       "especialidades":[
          "Ginecologia e Obstetrícia"
@@ -428,7 +428,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"AIUKA JOSE DE ALMEIDA",
+      "nome":"Cassio Jose De Almeida",
       "telefone":"(48) 3222-5900 | (48) 3222-5346",
       "especialidades":[
          "Oncologia Clínica",
@@ -446,7 +446,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALAN INDIO SERRANO",
+      "nome":"Caio Serrano",
       "telefone":"(48) 3028-9096 | (48) 3222-4096",
       "especialidades":[
          "Psiquiatria"
@@ -459,7 +459,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALBERTO AMBROGINI",
+      "nome":"Carlos Ambrogini",
       "telefone":"(48) 3222-3605",
       "especialidades":[
          "Urologia"
@@ -472,7 +472,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALBERTO CHTERPENSQUE",
+      "nome":"Cleisson Gheller",
       "telefone":"(48) 3029-6900",
       "especialidades":[
          "Pneumologia"
@@ -485,7 +485,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALBERTO DE PONTES JARDIM JUNIOR",
+      "nome":"Claudio Souza",
       "telefone":"(48) 3222-0087",
       "especialidades":[
          "Anestesiologia",
@@ -508,7 +508,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALBERTO TRAPANI JUNIOR",
+      "nome":"Daniel Trampani Junior",
       "telefone":"(48) 3028-0878",
       "especialidades":[
          "Ginecologia e Obstetrícia"
@@ -521,7 +521,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALDO ELIAS KIYOSHI TAKANO DE SAIDNEUY",
+      "nome":"Daniel Elias Takano",
       "telefone":"(48) 3235-3113",
       "especialidades":[
          "Cirurgia Geral",
@@ -541,7 +541,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALEX MIRANDA RAMOS",
+      "nome":"Douglas Miranda Ramos",
       "telefone":"(48) 3222-8898",
       "especialidades":[
          "Geriatria",
@@ -573,7 +573,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALEXANDER ROMENO JANNER DAL FORNO",
+      "nome":"Dirceu Romeno Dal Forno",
       "telefone":"(48) 3028-2300",
       "especialidades":[
          "Cardiologia",
@@ -591,7 +591,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALEXANDRE BORTOLI MACHADO",
+      "nome":"Eduardo Bortoli Machado",
       "telefone":"(48) 3229-0290",
       "especialidades":[
          "Dermatologia"
@@ -604,7 +604,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALEXANDRE CANELLA VALLIM",
+      "nome":"Eduarda Canellas Vallim",
       "telefone":"(48) 3224-0180",
       "especialidades":[
          "Radiologia e Diagnóstico por Imagem"
@@ -617,7 +617,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALEXANDRE CARLOS BUFFON",
+      "nome":"Erica Buffoni",
       "telefone":"(48) 3251-9000",
       "especialidades":[
          "Anestesiologia",
@@ -640,7 +640,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALEXANDRE DE AGUIAR RIBAS",
+      "nome":"Edileia De Aguias Ribas",
       "telefone":"(48) 3224-3265",
       "especialidades":[
          "Cardiologia"
@@ -653,7 +653,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALEXANDRE FALEIRO FIALHO",
+      "nome":"Fernanda Failero Alt",
       "telefone":"(48) 3223-6072",
       "especialidades":[
          "Cirurgia do Aparelho Digestivo",
@@ -667,7 +667,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALEXANDRE HORN VIANNA",
+      "nome":"Fernando Horn Vianna",
       "telefone":"(48) 3322-0000",
       "especialidades":[
          "Ginecologia e Obstetrícia"
@@ -680,7 +680,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALEXANDRE NASCIMENTO MATEUS",
+      "nome":"Felipe Nascimento",
       "telefone":"(48) 3322-0000",
       "especialidades":[
          "Cirurgia Oncológica",
@@ -694,7 +694,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALEXANDRE POSSER",
+      "nome":"Frederico Posser",
       "telefone":"(48) 3244-9425",
       "especialidades":[
          "Ortopedia e Traumatologia",
@@ -712,7 +712,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALEXANDRE SALLES IWERSEN",
+      "nome":"Fred Salles Iven",
       "telefone":"(48) 3029-0099",
       "especialidades":[
          "Radiologia e Diagnóstico por Imagem",
@@ -730,7 +730,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALEXANDRE STUDZINSKI DE SOUZA",
+      "nome":"Guilherme Stud De Souza",
       "telefone":"(48) 3229-7777",
       "especialidades":[
          "Radiologia e Diagnóstico por Imagem",
@@ -748,7 +748,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALEXANDRE THOMAZ ARAUJO",
+      "nome":"Guilhermina Araújo",
       "telefone":"(48) 3221-7500",
       "especialidades":[
          "Médico",
@@ -762,7 +762,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALFEU MARIANO DE OLIVEIRA",
+      "nome":"Geromel Mariano De Oliveira",
       "telefone":"(48) 3248-7914",
       "especialidades":[
          "Medicina do Trabalho"
@@ -775,7 +775,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALFREDO MARTINS",
+      "nome":"Gilberto Martins",
       "telefone":"(48) 3221-7524 | (48) 3221-7509",
       "especialidades":[
          "Anestesiologia"
@@ -788,7 +788,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALFREDO SPAUTZ GRANEMANN",
+      "nome":"Henrique Spautz Graneman",
       "telefone":"(48) 3224-3099",
       "especialidades":[
          "Cirurgia Plástica",
@@ -806,7 +806,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALICE FELDENS PEDOTTE",
+      "nome":"Alice Feldens Pitz",
       "telefone":"(48) 3228-7000",
       "especialidades":[
          "Anestesiologia",
@@ -824,7 +824,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALINE DA ROCHA LINO",
+      "nome":"Aline Da Rocha Lino",
       "telefone":"(48) 3223-6072",
       "especialidades":[
          "Oncologia Clínica",
@@ -842,7 +842,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALINE DE BORBA SCHEFFER",
+      "nome":"Ana Clara Borba",
       "telefone":"(48) 3324-1100",
       "especialidades":[
          "Clínica Médica"
@@ -855,7 +855,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALINE DIAS SILVA GUERRERO GUIMARAES",
+      "nome":"Rafael Guerreiro",
       "telefone":"(48) 4004-1300 E-mail",
       "especialidades":[
          "Radiologia e Diagnóstico por Imagem"
@@ -868,7 +868,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALINE KOTH MENEGON AREND",
+      "nome":"Helio Rodolfo Roveda Teixeira",
       "telefone":"(48) 3029-0099",
       "especialidades":[
          "Radiologia e Diagnóstico por Imagem",
@@ -886,7 +886,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALINE SUDOSKI",
+      "nome":"Maria Elizabeth Teixeira",
       "telefone":"(48) 3224-9394",
       "especialidades":[
          "Oftalmologia",
@@ -904,7 +904,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALISSON PITTOL BRESCIANI",
+      "nome":"Danusa Giusti Consoni",
       "telefone":"(48) 3304-2504",
       "especialidades":[
          "Neurologia"
@@ -917,7 +917,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALMIR VIEIRA STADLER",
+      "nome":"João Verissimo Ribas",
       "telefone":"(48) 3224-9922",
       "especialidades":[
          "Medicina do Trabalho"
@@ -930,7 +930,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALVARO ANTONIO DO NASCIMENTO",
+      "nome":"Alavaro Antonio Do Nascimento",
       "telefone":"(48) 3037-2225 | (48) 99110-8510",
       "especialidades":[
          "Psiquiatria"
@@ -943,7 +943,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALVARO GUIMARAES DE LIMA",
+      "nome":"Alavo De Lima",
       "telefone":"(48) 3028-0878",
       "especialidades":[
          "Ortopedia e Traumatologia"
@@ -956,7 +956,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALVARO KRAEMER SOUTO",
+      "nome":"Rafael Kraemer Souto",
       "telefone":"(48) 3222-3605",
       "especialidades":[
          "Urologia"
@@ -969,7 +969,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALVARO STECKERT FILHO",
+      "nome":"Nereu Stecker Filho",
       "telefone":"(48) 3030-2930",
       "especialidades":[
          "Coloproctologia"
@@ -982,7 +982,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALVARO THADEU BENDER",
+      "nome":"Tadeu Bender",
       "telefone":"(48) 3322-0015",
       "especialidades":[
          "Dermatologia"
@@ -995,7 +995,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALVIN LAEMMEL",
+      "nome":"Alvin Laemmel",
       "telefone":"(48) 3224-1111 | (48) 3224-0708",
       "especialidades":[
          "Cirurgia de Cabeça e Pescoço"
@@ -1008,7 +1008,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ALZIRA COSTA UNGARETTI",
+      "nome":"Alzira Costa Union",
       "telefone":"(48) 3222-9381",
       "especialidades":[
          "Ginecologia e Obstetrícia"
@@ -1021,7 +1021,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"AMILTON CARNIEL GUIMARAES",
+      "nome":"José Carniel Guimarães",
       "telefone":"(48) 3222-6677",
       "especialidades":[
          "Gastroenterologia"
@@ -1034,7 +1034,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANA APARECIDA DE SANTIAGO",
+      "nome":"Flávia Aparecida De Santigo",
       "telefone":"(48) 3030-3333",
       "especialidades":[
          "Otorrinolaringologia"
@@ -1047,7 +1047,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANA CAMILA FLORES FARAH",
+      "nome":"Kamila Flores Farah",
       "telefone":"(48) 3251-9000",
       "especialidades":[
          "Pediatria"
@@ -1060,7 +1060,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANA CAROLINA KOERICH RAMPINELLI",
+      "nome":"Carolina Koerich Pampinelli",
       "telefone":"(48) 3228-1818",
       "especialidades":[
          "Oftalmologia",
@@ -1083,7 +1083,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANA CAROLINA SEPETIBA RIBAS SIMOES DE ALMEIDA",
+      "nome":"Carolina Sepetiba Ribas De Almeida",
       "telefone":"(48) 3223-6072",
       "especialidades":[
          "Hematologia e Hemoterapia",
@@ -1097,7 +1097,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANA CRISTINA GOMES MAMFRIN CAPANO",
+      "nome":"Cristina Gomes Mamfrin",
       "telefone":"(48) 3228-0215",
       "especialidades":[
          "Pediatria"
@@ -1110,7 +1110,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANA CRISTINA SCHMITZ CHEREM",
+      "nome":"Cristina Sshimitz Cherem",
       "telefone":"(48) 3024-5300",
       "especialidades":[
          "Medicina Nuclear"
@@ -1123,7 +1123,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANA CRISTINA TORQUI DUARTE",
+      "nome":"Débora Torqui Duarte",
       "telefone":"(48) 3365-1655",
       "especialidades":[
          "Pediatria"
@@ -1136,7 +1136,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANA FLAVIA BORGES DE CARVALHO LIMA",
+      "nome":"Flávia Borges Lima",
       "telefone":"(48) 3028-9100",
       "especialidades":[
          "Acupuntura",
@@ -1154,7 +1154,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANA MARCIA WERNECK DE CASTRO",
+      "nome":"Marcia Werneck De Castro",
       "telefone":"(48) 3229-7777",
       "especialidades":[
          "Radiologia e Diagnóstico por Imagem",
@@ -1172,7 +1172,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANA MARIA ZENHA RAPALLO",
+      "nome":"Maria Zenha Rapalo",
       "telefone":"(48) 3216-8222",
       "especialidades":[
          "Anestesiologia"
@@ -1185,7 +1185,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANA PATRICIA CORREA",
+      "nome":"Patricia Correa",
       "telefone":"(48) 3222-4004",
       "especialidades":[
          "Ginecologia e Obstetrícia"
@@ -1198,7 +1198,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANA PAULA ARAGAO",
+      "nome":"Paula Aragão",
       "telefone":"(48) 3216-8222",
       "especialidades":[
          "Pediatria"
@@ -1211,7 +1211,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANA PAULA BELTRAME FARINA PASINATO",
+      "nome":"Paula Beltrame Farina",
       "telefone":"(48) 3222-3032",
       "especialidades":[
          "Patologia",
@@ -1229,7 +1229,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANA PAULA DOS SANTOS CARMINATTI",
+      "nome":"Paula Dos Santos Carminatti",
       "telefone":"(48) 3216-8999",
       "especialidades":[
          "Pediatria"
@@ -1242,7 +1242,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANA PAULA TRENTIN",
+      "nome":"Paula Trentini",
       "telefone":"(48) 3222-7237 | (48) 98405-9771",
       "especialidades":[
          "Neurologia"
@@ -1255,7 +1255,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANDRE LUIS TEIXEIRA DE SAN THIAGO",
+      "nome":"André Luiz Teixeira Alvez",
       "telefone":"(48) 3028-2300",
       "especialidades":[
          "Cardiologia",
@@ -1269,7 +1269,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANDRE LUZ PEREIRA ROMANO",
+      "nome":"André Luiz Romano",
       "telefone":"(48) 3229-6500",
       "especialidades":[
          "Anestesiologia",
@@ -1302,7 +1302,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANDRE MENDES ARENT",
+      "nome":"Arthur Arend",
       "telefone":"(48) 3952-4000",
       "especialidades":[
          "Neurocirurgia"
@@ -1315,7 +1315,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANDRE MULLER TEIVE",
+      "nome":"Andre Muller Teive",
       "telefone":"(48) 3224-1888",
       "especialidades":[
          "Patologia"
@@ -1328,7 +1328,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANDRE ROBERTO BUSSMANN",
+      "nome":"Andrpe Roberto Bussmann",
       "telefone":"(48) 4004-1300",
       "especialidades":[
          "Anestesiologia",
@@ -1346,7 +1346,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANDRE SOBIERAJSKI DOS SANTOS",
+      "nome":"André Dos Santos",
       "telefone":"(48) 3222-2223",
       "especialidades":[
 
@@ -1356,7 +1356,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANDRE SOUZA DE ALBUQUERQUE MARANHAO",
+      "nome":"Renato Albuquerque Maranhão",
       "telefone":"(48) 3224-1111",
       "especialidades":[
          "Otorrinolaringologia"
@@ -1369,7 +1369,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANDREA ANNELIESE REICHMUTH DAY",
+      "nome":"Anelise Bittencourt Santos",
       "telefone":"(48) 3324-1100",
       "especialidades":[
          "Cirurgia Torácica",
@@ -1392,7 +1392,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANDREA ANTUNES CALDEIRA DE ANDRADA FERREIRA",
+      "nome":"Fernanda Alves Nascimento",
       "telefone":"(48) 3224-0180",
       "especialidades":[
          "Ginecologia e Obstetrícia",
@@ -1410,7 +1410,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANDREA BENINCA DE ALMEIDA",
+      "nome":"Andrea Almeida dos Santos",
       "telefone":"(48) 3251-9000",
       "especialidades":[
          "Pediatria"
@@ -1423,7 +1423,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANDREA CRISTINA BELLI",
+      "nome":"Carla Elias Teixeira",
       "telefone":"(48) 3224-2214",
       "especialidades":[
          "Dermatologia"
@@ -1436,7 +1436,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANDREA GISELE PEREIRA SIMONI",
+      "nome":"Cássia Barbosa",
       "telefone":"(48) 3251-9000",
       "especialidades":[
          "Pediatria",
@@ -1454,7 +1454,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANDREA RODRIGUES DE SOUSA",
+      "nome":"Caroline Elias Saute",
       "telefone":"(48) 3229-2829",
       "especialidades":[
          "Otorrinolaringologia",
@@ -1472,7 +1472,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANDRESSA FERREIRA CATHCART DE ARAUJO",
+      "nome":"Izabela Araujo",
       "telefone":"(48) 4009-0077",
       "especialidades":[
          "Cardiologia",
@@ -1490,7 +1490,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANDREY MOREL PUCCI",
+      "nome":"Andrey Piccini Kauss",
       "telefone":"(48) 3224-7466",
       "especialidades":[
          "Ortopedia e Traumatologia"
@@ -1503,7 +1503,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANTONIO NICOLEIT",
+      "nome":"GUILHERME NICOLEIT",
       "telefone":"(48) 3244-9425",
       "especialidades":[
          "Ortopedia e Traumatologia"
@@ -1516,7 +1516,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANTONIO OLIMPIO PACHECO",
+      "nome":"Heitor Olimpio Pacheco",
       "telefone":"(48) 3271-4400",
       "especialidades":[
          "Ginecologia e Obstetrícia"
@@ -1529,7 +1529,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ANTONIO SERGIO DA SILVA GRANGEIRO",
+      "nome":"Iara Da Silva Tatim",
       "telefone":"(48) 3212-0101",
       "especialidades":[
          "Anestesiologia"
@@ -1542,7 +1542,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ARARE WEY",
+      "nome":"Igor Teixeira",
       "telefone":"(48) 3271-4400",
       "especialidades":[
          "Ginecologia e Obstetrícia"
@@ -1555,7 +1555,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ARI CESAR LENTZ",
+      "nome":"Jesus Cesar Lentz",
       "telefone":"(48) 3304-7306",
       "especialidades":[
          "Médico"
@@ -1568,7 +1568,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ARI ROCHA",
+      "nome":"Julio Rocha Tavarez",
       "telefone":"(48) 3229-6500",
       "especialidades":[
          "Urologia",
@@ -1586,7 +1586,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ARIANE BORGONOVO RAYES",
+      "nome":"Jaqueline Borno Martini",
       "telefone":"(48) 3222-3559",
       "especialidades":[
          "Gastroenterologia"
@@ -1599,7 +1599,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ARIANE MARTINS DE MENEZES",
+      "nome":"Lara Martins de Menezes",
       "telefone":"(48) 3223-3031",
       "especialidades":[
          "Ginecologia e Obstetrícia",
@@ -1617,7 +1617,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ARISTILIANO RAMOS NETO",
+      "nome":"Leandro Ramos Neto",
       "telefone":"(48) 3222-1477 | (48) 3222-1798",
       "especialidades":[
          "Cardiologia"
@@ -1630,7 +1630,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ARMANDO TARANTO JUNIOR",
+      "nome":"Maycon Taranto Junior",
       "telefone":"(48) 3216-8000",
       "especialidades":[
          "Médico"
@@ -1643,7 +1643,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ARMENIO MATIAS CORREA LIMA",
+      "nome":"Marcos da Silva Oliveira",
       "telefone":"(48) 3232-0470",
       "especialidades":[
          "Homeopatia"
@@ -1656,7 +1656,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ARNALDO DONATO MARCON",
+      "nome":"Tales Donato Marcon",
       "telefone":"(48) 3224-8483",
       "especialidades":[
          "Pediatria"
@@ -1669,7 +1669,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ARNO DAVI ANDERMANN",
+      "nome":"Tadeu Davi Durman",
       "telefone":"(48) 3248-2022",
       "especialidades":[
          "Psiquiatria",
@@ -1687,7 +1687,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ARNO LOTAR CORDOVA JUNIOR",
+      "nome":"Victor Teixeira Gueller",
       "telefone":"(48) 3222-7966",
       "especialidades":[
          "Radioterapia",
@@ -1705,7 +1705,7 @@ var dbMedicos = [
       ]
    },
    {
-      "nome":"ARTHUR SERGIO DA SILVEIRA FILHO",
+      "nome":"Zenaide da Silveira Santos",
       "telefone":"(48) 3222-0082 | (48) 99912-7600",
       "especialidades":[
          "Cardiologia"
